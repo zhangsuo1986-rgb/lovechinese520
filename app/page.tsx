@@ -11,7 +11,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:py-24">
           <div className="flex flex-col justify-center">
             <p className="text-sm font-bold uppercase tracking-widest text-brand-blue">{site.slogan}</p>
-            <h1 className="mt-4 text-4xl font-extrabold leading-tight text-slate-950 sm:text-5xl lg:text-6xl">
+            <h1 className="mt-4 whitespace-nowrap text-[clamp(2.4rem,6vw,4.75rem)] font-extrabold leading-none tracking-tight text-slate-950">
               LOVE CHINESE 爱中文
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">

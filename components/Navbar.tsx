@@ -10,13 +10,19 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-3" aria-label="LOVE CHINESE home">
-          <span className="grid h-11 w-11 place-items-center rounded-lg bg-brand-red text-lg font-bold text-white">
-            爱
+        <Link href="/" className="flex min-w-0 items-center gap-3" aria-label="LOVE CHINESE home">
+          <span className="grid h-12 w-12 shrink-0 overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
+            <img
+              src="/love-chinese-youtube-icon.png"
+              alt=""
+              className="h-full w-full object-cover object-top"
+            />
           </span>
-          <span>
-            <span className="block text-base font-bold tracking-wide text-slate-950">{site.name}</span>
-            <span className="block text-xs font-medium text-brand-blue">{site.slogan}</span>
+          <span className="min-w-0">
+            <span className="block whitespace-nowrap text-sm font-extrabold tracking-wide text-slate-950 sm:text-base">
+              LOVE CHINESE 爱中文
+            </span>
+            <span className="block whitespace-nowrap text-xs font-medium text-brand-blue">{site.slogan}</span>
           </span>
         </Link>
 
