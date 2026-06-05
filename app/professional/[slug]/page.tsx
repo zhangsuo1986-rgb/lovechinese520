@@ -1,7 +1,17 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/PageHero";
-import { professionalPages, youtube } from "@/lib/content";
+import { VideoCard } from "@/components/VideoCard";
+import { professionalPages } from "@/lib/content";
+import {
+  getProfessionalVideos,
+  getVideosByCategory,
+  getYouTubeVideos,
+  professionalVideoRules,
+  YOUTUBE_CHANNEL_URL,
+} from "@/lib/youtube";
+
+export const revalidate = 3600;
 
 type ProfessionalTopicPageProps = {
   params: Promise<{
@@ -26,6 +36,9 @@ export async function generateMetadata({ params }: ProfessionalTopicPageProps): 
   return {
     title: category.title,
     description: `${category.description} Learn useful workplace vocabulary, phrases, and communication patterns with LOVE CHINESE 爱中文.`,
+    alternates: {
+      canonical: `/professional/${category.slug}`,
+    },
   };
 }
 
@@ -36,6 +49,14 @@ export default async function ProfessionalTopicPage({ params }: ProfessionalTopi
   if (!category) {
     notFound();
   }
+
+  const allVideos = await getYouTubeVideos();
+  const directVideos =
+    category.slug in professionalVideoRules
+      ? getProfessionalVideos(category.slug as keyof typeof professionalVideoRules, allVideos)
+      : [];
+  const fallbackVideos = await getVideosByCategory("Business Chinese");
+  const relatedVideos = directVideos.length ? directVideos : fallbackVideos;
 
   return (
     <>
@@ -70,7 +91,7 @@ export default async function ProfessionalTopicPage({ params }: ProfessionalTopi
             <li>3. Watch LOVE CHINESE video lessons and review the words again.</li>
           </ul>
           <a
-            href={youtube.channelUrl}
+            href={YOUTUBE_CHANNEL_URL}
             target="_blank"
             rel="noreferrer"
             className="mt-6 inline-flex rounded-lg bg-brand-red px-5 py-3 text-sm font-bold text-white transition hover:bg-red-800"
@@ -78,6 +99,21 @@ export default async function ProfessionalTopicPage({ params }: ProfessionalTopi
             Watch on YouTube
           </a>
         </aside>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+        <div className="mb-8">
+          <p className="text-sm font-bold uppercase tracking-widest text-brand-red">Related YouTube Lessons</p>
+          <h2 className="mt-3 text-3xl font-extrabold text-slate-950">{category.title} Videos</h2>
+          <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-600">
+            These videos are automatically matched from the LOVE CHINESE YouTube channel by industry keywords.
+          </p>
+        </div>
+        <div className="grid gap-5 lg:grid-cols-2">
+          {relatedVideos.map((video) => (
+            <VideoCard key={video.id} video={video} showEmbed />
+          ))}
+        </div>
       </section>
     </>
   );

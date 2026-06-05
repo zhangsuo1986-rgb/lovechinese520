@@ -8,6 +8,7 @@ export const site = {
 
 export const navItems = [
   { label: "Home", href: "/" },
+  { label: "Videos", href: "/videos" },
   { label: "HSK", href: "/hsk" },
   { label: "Pronunciation", href: "/pronunciation" },
   { label: "Characters", href: "/characters" },
@@ -219,9 +220,7 @@ export const professionalCategories = [
   },
 ];
 
-export const professionalPages = professionalCategories.filter((category) =>
-  ["construction", "restaurant", "medical", "hotel", "oil-gas"].includes(category.slug)
-);
+export const professionalPages = professionalCategories;
 
 export const pages = {
   hsk: {
