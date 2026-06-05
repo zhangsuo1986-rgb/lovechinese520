@@ -43,12 +43,12 @@ export function Navbar() {
           <span className="text-2xl leading-none">{open ? "×" : "☰"}</span>
         </button>
 
-        <div className="hidden min-w-0 flex-1 flex-wrap items-center justify-end gap-0.5 md:flex lg:gap-1">
+        <div className="hidden min-w-0 flex-1 flex-nowrap items-center justify-end gap-0.5 md:flex lg:gap-1">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-lg px-1.5 py-2 text-[11px] font-semibold leading-tight text-slate-700 transition hover:bg-slate-100 hover:text-brand-red lg:px-2 xl:px-2.5 xl:text-xs 2xl:text-sm"
+              className="whitespace-nowrap rounded-lg px-1.5 py-2 text-[11px] font-semibold leading-tight text-slate-700 transition hover:bg-slate-100 hover:text-brand-red lg:px-2 xl:px-2.5 xl:text-xs 2xl:text-sm"
             >
               {item.label}
             </Link>
