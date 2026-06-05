@@ -278,14 +278,6 @@ export function getProfessionalVideos(slug: keyof typeof professionalVideoRules,
   return videos.filter((video) => rules.some((rule) => searchableText(video).includes(rule.toLowerCase())));
 }
 
-export function searchVideos(videos: YouTubeVideo[], query: string) {
-  const normalized = query.trim().toLowerCase();
-  if (!normalized) {
-    return videos;
-  }
-  return videos.filter((video) => searchableText(video).includes(normalized));
-}
-
 function parseYouTubeFeed(xml: string): YouTubeVideo[] {
   const entries = [...xml.matchAll(/<entry>([\s\S]*?)<\/entry>/g)].map((match) => match[1]);
 
