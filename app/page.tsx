@@ -1,7 +1,15 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { CourseCard } from "@/components/CourseCard";
 import { ProfessionalCard } from "@/components/ProfessionalCard";
-import { featuredCourses, professionalCategories, site } from "@/lib/content";
+import { YouTubeEmbed } from "@/components/YouTubeEmbed";
+import { featuredCourses, professionalCategories, site, youtube } from "@/lib/content";
+
+export const metadata: Metadata = {
+  title: "Learn Chinese Online",
+  description:
+    "Learn Chinese step by step with LOVE CHINESE 爱中文 through YouTube videos, HSK vocabulary, pronunciation, grammar, culture, and professional Chinese lessons.",
+};
 
 export default function Home() {
   return (
@@ -79,17 +87,26 @@ export default function Home() {
       <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="mb-8">
           <p className="text-sm font-bold uppercase tracking-widest text-brand-red">Latest Videos</p>
-          <h2 className="mt-3 text-3xl font-extrabold text-slate-950">YouTube lessons coming soon</h2>
+          <h2 className="mt-3 text-3xl font-extrabold text-slate-950">Watch Chinese lessons on YouTube</h2>
         </div>
-        <div className="grid gap-5 md:grid-cols-3">
-          {[1, 2, 3].map((video) => (
-            <div key={video} className="rounded-lg border border-dashed border-slate-300 bg-white/80 p-6 shadow-sm backdrop-blur">
-              <div className="flex aspect-video items-center justify-center rounded-lg bg-slate-100 text-sm font-bold text-slate-500">
-                YouTube Embed Placeholder
-              </div>
-              <h3 className="mt-4 font-bold text-slate-950">Latest Chinese Lesson {video}</h3>
-            </div>
+        <div className="grid gap-5 lg:grid-cols-2">
+          {youtube.videos.map((video) => (
+            <article key={video.id}>
+              <YouTubeEmbed id={video.id} title={video.title} />
+              <h3 className="mt-4 font-bold text-slate-950">{video.title}</h3>
+              <p className="mt-2 text-sm leading-6 text-slate-600">{video.description}</p>
+            </article>
           ))}
+        </div>
+        <div className="mt-8">
+          <a
+            href={youtube.channelUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex rounded-lg bg-brand-blue px-6 py-3 text-base font-bold text-white shadow-sm transition hover:bg-blue-800"
+          >
+            Watch on YouTube
+          </a>
         </div>
       </section>
     </>
