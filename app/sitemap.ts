@@ -18,6 +18,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.75,
   }));
 
+  const videoLibraryPage = {
+    url: `${site.domain}/videos`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.82,
+  };
+
   const videoCategoryPages = videoCategories.map((item) => ({
     url: `${site.domain}/videos/${item.slug}`,
     lastModified: new Date(),
@@ -40,5 +47,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.78,
   }));
 
-  return [...basePages, ...professionalTopicPages, ...videoCategoryPages, ...videoPages, ...hskPages];
+  return [...basePages, videoLibraryPage, ...professionalTopicPages, ...videoCategoryPages, ...videoPages, ...hskPages];
 }

@@ -8,7 +8,6 @@ export const site = {
 
 export const navItems = [
   { label: "Home", href: "/" },
-  { label: "Videos", href: "/videos" },
   { label: "HSK", href: "/hsk" },
   { label: "Pronunciation", href: "/pronunciation" },
   { label: "Characters", href: "/characters" },
