@@ -11,7 +11,7 @@ export function CourseCard({ title, description, href, icon }: CourseCardProps) 
   return (
     <Link
       href={href}
-      className="group rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-soft"
+      className="group rounded-lg border border-white/70 bg-white/80 p-6 shadow-sm backdrop-blur transition hover:-translate-y-1 hover:shadow-soft"
     >
       <span className="mb-5 grid h-14 w-14 place-items-center rounded-lg bg-blue-50 text-sm font-bold text-brand-blue">
         {icon}

@@ -6,12 +6,15 @@ import { featuredCourses, professionalCategories, site } from "@/lib/content";
 export default function Home() {
   return (
     <>
-      <section className="relative overflow-hidden bg-white">
+      <section className="relative overflow-hidden bg-white/75">
         <div className="absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-brand-red via-brand-gold to-brand-blue" />
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:py-24">
+        <div className="pointer-events-none absolute -right-24 top-24 h-72 w-72 rounded-full bg-brand-gold/15 blur-3xl" />
+        <div className="pointer-events-none absolute -left-24 bottom-12 h-80 w-80 rounded-full bg-brand-blue/10 blur-3xl" />
+
+        <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:py-24">
           <div className="flex flex-col justify-center">
             <p className="text-sm font-bold uppercase tracking-widest text-brand-blue">{site.slogan}</p>
-            <h1 className="mt-4 whitespace-nowrap text-[clamp(2.4rem,6vw,4.75rem)] font-extrabold leading-none tracking-tight text-slate-950">
+            <h1 className="mt-4 whitespace-nowrap text-[clamp(2.2rem,5.8vw,4.5rem)] font-extrabold leading-none tracking-tight text-slate-950">
               LOVE CHINESE 爱中文
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
@@ -27,10 +30,10 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="rounded-lg border border-slate-200 bg-brand-bg p-6 shadow-soft">
+          <div className="rounded-lg border border-white/70 bg-white/70 p-6 shadow-soft backdrop-blur">
             <div className="grid gap-4 sm:grid-cols-2">
               {["你好", "拼音", "词汇", "语法"].map((text, index) => (
-                <div key={text} className="rounded-lg bg-white p-5 shadow-sm">
+                <div key={text} className="rounded-lg bg-white/90 p-5 shadow-sm">
                   <p className="text-3xl font-extrabold text-brand-red">{text}</p>
                   <p className="mt-3 text-sm font-semibold text-slate-600">
                     Step {index + 1}: Learn with clear examples.
@@ -59,7 +62,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-white">
+      <section className="bg-white/65 backdrop-blur-sm">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
           <div className="mb-8">
             <p className="text-sm font-bold uppercase tracking-widest text-brand-blue">Professional Chinese</p>
@@ -80,7 +83,7 @@ export default function Home() {
         </div>
         <div className="grid gap-5 md:grid-cols-3">
           {[1, 2, 3].map((video) => (
-            <div key={video} className="rounded-lg border border-dashed border-slate-300 bg-white p-6">
+            <div key={video} className="rounded-lg border border-dashed border-slate-300 bg-white/80 p-6 shadow-sm backdrop-blur">
               <div className="flex aspect-video items-center justify-center rounded-lg bg-slate-100 text-sm font-bold text-slate-500">
                 YouTube Embed Placeholder
               </div>

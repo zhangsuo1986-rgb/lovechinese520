@@ -5,7 +5,7 @@ type ProfessionalCardProps = {
 
 export function ProfessionalCard({ title, description }: ProfessionalCardProps) {
   return (
-    <article className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
+    <article className="overflow-hidden rounded-lg border border-white/70 bg-white/80 shadow-sm backdrop-blur">
       <div className="flex aspect-[16/9] items-center justify-center bg-gradient-to-br from-blue-50 via-slate-100 to-red-50">
         <div className="rounded-lg bg-white px-4 py-3 text-center shadow-sm">
           <p className="text-xs font-bold uppercase tracking-widest text-brand-red">Image Placeholder</p>

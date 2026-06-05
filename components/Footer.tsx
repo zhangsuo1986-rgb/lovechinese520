@@ -3,11 +3,13 @@ import { navItems, site } from "@/lib/content";
 
 export function Footer() {
   return (
-    <footer className="border-t border-slate-200 bg-white">
+    <footer className="border-t border-slate-200/80 bg-white/75 backdrop-blur">
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[1.2fr_2fr] lg:px-8">
         <div>
           <div className="mb-3 flex items-center gap-3">
-            <span className="grid h-10 w-10 place-items-center rounded-lg bg-brand-red font-bold text-white">爱</span>
+            <span className="grid h-10 w-10 overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
+              <img src="/love-chinese-youtube-icon.png" alt="" className="h-full w-full object-cover object-top" />
+            </span>
             <div>
               <p className="font-bold text-slate-950">{site.name}</p>
               <p className="text-sm text-brand-blue">{site.slogan}</p>
@@ -26,7 +28,7 @@ export function Footer() {
           ))}
         </div>
       </div>
-      <div className="border-t border-slate-200 px-4 py-4 text-center text-xs text-slate-500">
+      <div className="border-t border-slate-200/80 px-4 py-4 text-center text-xs text-slate-500">
         © {new Date().getFullYear()} LOVE CHINESE 爱中文. All rights reserved.
       </div>
     </footer>

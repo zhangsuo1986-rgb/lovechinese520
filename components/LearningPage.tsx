@@ -14,7 +14,7 @@ export function LearningPage({ title, kicker, description, sections }: LearningP
       <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {sections.map((section, index) => (
-            <article key={section} className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+            <article key={section} className="rounded-lg border border-white/70 bg-white/80 p-6 shadow-sm backdrop-blur">
               <span className="grid h-12 w-12 place-items-center rounded-lg bg-red-50 text-sm font-extrabold text-brand-red">
                 {index + 1}
               </span>
